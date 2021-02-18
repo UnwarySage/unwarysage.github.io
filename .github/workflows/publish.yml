@@ -30,7 +30,7 @@ jobs:
       - name: Setup Sass
         run: sudo npm install sass -g
     # Fetch Lein Deps
-      - name: Build blog
+      - name: Fetch deps
         run: lein deps
     # Build the blog    
       - name: Build Blog
