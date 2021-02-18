@@ -35,16 +35,9 @@ jobs:
     # Build the blog    
       - name: Build Blog
         run: lein run
-    # Move blog to right folder
-      - name: Adjust blog root
-        run: mv ./public/* ./ & ls
-    # Commit the build
-      - name:  Commit build
-        uses: EndBug/add-and-commit@v7
+    # Deploy to GH-pages
+      - name: Deploy Blog
+        uses: peaceiris/actions-gh-pages@v3
         with: 
-          add: '*'
-          author_name: UnwarySage
-          author_email: shawx538@morris.umn.edu
-          branch: gh-pages
-          message: "auto-publish"
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
