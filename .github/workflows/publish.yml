@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - master
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,13 +16,19 @@ jobs:
     # Install Java
       - name: Prepare Java
         uses: actions/setup-java@v1
-        with: 
+        with:
           java-version: 1.8
     # Setup leiningen
       - name: Setup Leiningen
         uses: DeLaGuardo/setup-clojure@master
         with:
           lein: 2.9.1
+    # Setup NPM
+      - name: Setup NPM
+        run: sudo apt install nodejs -y & nodejs -v & sudo apt install npm & npm -v
+    # Setup Sass
+      - name: Setup Sass
+        run: sudo npm install sass -g
     # Build the site
       - name: Build blog
         run: lein run
@@ -29,7 +36,7 @@ jobs:
       - name:  Commit build
         uses: EndBug/add-and-commit@v7
         with: 
-          add: 'public -f'
+          add: './public/* -f'
           author_name: UnwarySage
           author_email: shawx538@morris.umn.edu
           branch: gh-pages
