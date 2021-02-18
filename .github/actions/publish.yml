@@ -29,7 +29,7 @@ jobs:
       - name:  Commit build
         uses: EndBug/add-and-commit@v7
         with: 
-          add: 'public -f'
+          add: './public/* -f'
           author_name: UnwarySage
           author_email: shawx538@morris.umn.edu
           branch: gh-pages
