@@ -24,6 +24,7 @@ jobs:
           lein: 2.9.1
     # Setup sass
       - name:  Setup Sass
+        uses: bahmutov/npm-install@v1
         run: npm install -g sass
     # Build the site
       - name: Build blog
