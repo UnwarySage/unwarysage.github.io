@@ -1,7 +1,7 @@
 {:site-title                   "Glimmers and Musings"
  :author                       "Charlot"
  :description                  "Charlots webshelf"
- :site-url                     "http://blogawesome.com/"
+ :site-url                     "http://unwarysage.github.io"
  :post-root                    "posts"
  :page-root                    "pages"
  :post-root-uri                "posts"
