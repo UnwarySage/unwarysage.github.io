@@ -29,9 +29,15 @@ jobs:
     # Setup Sass
       - name: Setup Sass
         run: sudo npm install sass -g
-    # Build the site
+    # Fetch Lein Deps
       - name: Build blog
+        run: lein deps
+    # Build the blog    
+      - name: Build Blog
         run: lein run
+    # Move blog to right folder
+      - name: Adjust blog root
+        run: mv ./public/blog/* ./
     # Commit the build
       - name:  Commit build
         uses: EndBug/add-and-commit@v7
