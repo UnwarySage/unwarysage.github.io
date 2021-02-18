@@ -25,10 +25,10 @@ jobs:
           lein: 2.9.1
     # Setup NPM
       - name: Setup NPM
-        uses: bahmutov/npm-install@v1
+        run: sudo apt install nodejs -y & nodejs -v & sudo apt install npm & npm -v
     # Setup Sass
       - name: Setup Sass
-        run: npm install -g sass
+        run: sudo npm install sass -g
     # Build the site
       - name: Build blog
         run: lein run
