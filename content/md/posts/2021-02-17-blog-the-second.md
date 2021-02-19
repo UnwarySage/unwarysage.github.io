@@ -1,4 +1,4 @@
-{:title "Blog The Second"
+{:title "Blog The Second: Moving to Cryogen on Github Pages"
 :layout :post
 :tags ["programming" "clojure" "web" "meta" "cryogen" "github" "jekyll"]}
 
@@ -9,28 +9,49 @@ as I didn't know the udnerlying language, namely Ruby. Jekyll is a fine project,
 and I want to feel like I own my blog, and that means the code that powers it.
 
 ## Enter Cryogen
-Looking through the static site generators for Clojure, [Cryogen](http://cryogenweb.org/) and [perun](https://perun.io) seemed to be the major players for simple sites. I'd gotten my feet wet with simple projects in both, but never published anything. I like the idea of perun, but its lack of maintainership and needing to learn boot to fully work it, plus incomplete documentation made the decision for me.
+Looking through the static site generators for Clojure, [Cryogen](http://cryogenweb.org/) and [Perun](https://perun.io) seemed to be the major players for simple sites. I'd gotten my feet wet with simple projects in both, but never published anything. I like the idea of perun, but its lack of maintainership and needing to learn boot to fully work it, plus incomplete documentation made the decision for me.
 
 When I started in Jekyll, I noted that it should be easy enough to transfer the blog over to a different system. It's just Markdown after all.
 I was both right and wrong, and thought writing up a post on how I did the transfer would be good notes for myself in future, and of interest to anyone else seeking to leave Jekyll, or run Cryogen through GitHub Pages.
 
-### 01: Setup
-I ran the usual `lein new cryogen unwarysage.github.io` and started tinkering with the config, following Cryogens documentation. Picked out a theme for the moment, tried `:previews` on and off, but by and large I ran with the defaults.
+### 01: Setting Up Cryogen
+I ran the usual `lein new cryogen unwarysage.github.io` and started tinkering with the config, following Cryogens documentation. Picked out a theme for the moment, tried `:previews` on and off, and made `:posts-output` simply `:posts`, but by and large I ran with the defaults.
 
-### 02: Migration
+### 02: Migration from Jekyll
 Copying over the markdown files into a transitional folder, I went through and converted them by hand, needing only to do eight or so pages. I could have scripted any of these steps, but it wasn't worth it for eight repititions.
 
 First I converted the YAML frontmatter into the Clojure map literal expected by Cryogen. I dropped the date entry, as I don't think I need super precise timestamps, and I'm already dating based on the filename.
 Other than changing `categories` to `:tags`, that was all I needed to make the blog compile.
 
-Following that, I needed to make the links work. Cryogen provides a stricter separation of Markdown and template,
- so I didn't have to deal with templating logic, just ordinary markdown links.
-  I specifically chose to change `:post-root-uri` to `:posts` to make the links cleaner.
+For example, going from this.
+```yml
+---
+layout: post
+title: Terrayiel, Factions and Power
+date:   2018-09-05 15:08:55 -0500
+categories: rpg worldbuilding fantasy terrayiel
+---
+```
+to this.
+```clojure
+{
+:layout :post
+:title "Terrayiel, Factions and Power"
+:tags ["rpg" "worldbuilding" "fantasy" "terrayiel"]}
+```
+Following that, I needed to make the links work. Cryogen provides a stricter separation of Markdown and template, so I didn't have to deal with templating logic, just ordinary markdown links.
 
-Not caring for my history with Jekyll, I simply set my local git repositories upstream to point at GitHub with `git remote add origin FIXME`, and then force-pushed.
+For example, Jekyll has this,
+`[Previous: Souls and Magic]({{site.baseurl }}{% post_url 2018-08-22-terrayiel-souls-and-magic %})`
+
+versus Cryogens version here.
+`[Previous: Souls and Magic](/posts/2018-08-22-terrayiel-souls-and-magic)`
+
+
+Not caring for my history with Jekyll, I simply set my local git repositories upstream to point at GitHub with `git remote add origin https://github.com/unwarysage/unwarysage.github.io`, and then force-pushed.
 This killed the prior blog, but kept the repository and it's settings.
 
-### 03: Wiring
+### 03: Wiring up GitHub Actions
 I read a chunk of the GitHub Pages and Actions documentation, but this next bit took some fumbling, which I will summarize, and not delve into, blow-by-blow.
 
 1. Create `.nojekyll` in the repository root. this tells Github to stop thinking this is a Jekyll project.
@@ -93,4 +114,4 @@ It will then ask `lein` to pull in it's dependencies, and build the blog. Cryoge
 This could definitely be improved by caching leiningens dependencies, and I'll edit this post once I figure that out.
 
 ## Conclusion
-It's the little details in Software, and getting them exactly right. Deploying to GitHub Pages just makes the feedback loop clunkier, requiring a full commit and push to test. However, I do think the project so far is working quite well. I'm blogging once more, and excited to start tweaking this site to no end, especially now I have reduced the amount of black-box code to just be GitHub Pages deployment system. It's a good feeling.
+It's the little details in Software, and getting them exactly right. Deploying to GitHub Pages just makes the feedback loop clunkier, requiring a full commit and push to test, despite wanting to only push good code. However, I do think the project is working quite well. I'm blogging once more, and excited to start tweaking this site to no end, especially now I have reduced the amount of black-box code to just be GitHub Pages deployment system. It's a good feeling.
