@@ -19,7 +19,7 @@ Castor mentions that a lot of maintenance of infrastructure has been left undone
 ## Going Calling
 Heading to the Governors farm, they picked up the first mech to finish printing, Pilot Krell's *Walking Under Fire*.
 
-> *Walking Under Fire* is not a subtle frame. The acid green paint and spiked armor plates, as well as the large array of weapons, all of them extensively modified, one or two even scratch built, give it an eccentric and dangerous air, even fresh off the printer. Field repair and modifications only intensify this impression.
+> *Walking Under Fire* is not a subtle frame. The acid green paint, spiked armor plates red lights and rollbar give it an eccentric air.  The large array of weapons, all of them extensively modified, one or two even scratch built make it clear it's serius nature. Field repair and modifications only intensify this contrast later on.
 
 Requisitioning a pair of ATVs for the unmounted pilots, they depart for Merricktown. About forty five minutes of traversing the eerily quiet fungal tower and vine greenery, they encounter the outskirts of a town. 
 A militia member waiting by the side of the road waves them in, and gives them a subaltern to guide them in.
@@ -52,6 +52,3 @@ Patience made no overt comment on their errand.
 That evening, the second mech finishes printing, and they attend a small concert held by local band "Broken Filters", at the Bottom Of The Well. Hannah enjoys the concert to her surprise, as do Dreyvus and Jenna. 
 
 ### End Session Two
-
-
-
