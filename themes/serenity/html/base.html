@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}{% block subtitle %}{% endblock %}</title>
+    {% block meta %}
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="">
+    {% endblock %}
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:300,400,700|Inconsolata"
+        rel="stylesheet">
+    {% style "css/normalize.css" %}
+    {% style "css/blog.css" %}
+    {% style "css/lotus-highlightjs.min.css" %}
+</head>
+
+<body class="has-navbar-fixed-top">
+    <section class="hero is-small is-primary">
+        <div class="hero-body">
+            <p class="title">
+                {{title}}
+            </p>
+            <p class="subtitle">
+                {{description}}
+            </p>
+        </div>
+    </section>
+
+    <aside class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <!--Navbar icon and hamburger -->
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{blog-prefix}}">
+                <img class="icon" src="{{blog-prefix}}/img/black-lotus.svg">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <!--Navbar links -->
+        <div class="navbar-menu" id="navbarBasicExample">
+            <div class="navbar-start">
+                <a class="navbar-item {% if home %} is-active {% endif %}" href="{{index-uri}}">
+                    Home
+                </a>
+                <a class="navbar-item {% if archives %} is-active {% endif %}" href="{{archives-uri}}">
+                    Archives
+                </a>
+                <!-- show tags only if there are any tags-->
+                {% if tags|not-empty %}
+                <a class="navbar-item {%ifequal uri tags-uri %} is-active {% endifequal %}" href="{{tags-uri}}">
+                    Tags
+                </a>
+                {% endif %}
+                <!--finally make an entry for any page marked to show up in the navbar-->
+                {% for nav-page in navbar-pages %}
+                <a class="navbar-item {% ifequal page.uri nav-page.uri %} is-active {% endifequal %}"
+                    href="{{nav-page.uri}}">
+                    {{nav-page.title}}
+                </a>
+                {% endfor %}
+
+            </div>
+        </div>
+    </aside>
+    <article class="container">
+        {% block content %}
+        {% endblock %}
+    </article>
+    <hr>
+    <div class="" <footer class="footer">
+        <div class="container has-text-centered">
+            <p>
+                <strong>{{title}}</strong>, Copyright &copy; {{today|date:yyyy}} {{author}}
+            </p>
+            <p>
+                Powered by
+                <a href="http://cryogenweb.org/">
+                    Cryogen
+                </a> &
+                <a href="https://bulma.io/">
+                    Bulma
+                </a>
+            </p>
+        </div>
+        </footer>
+
+        {% script "js/highlight.pack.js" %}
+        <script>hljs.initHighlightingOnLoad();</script>
+
+        {% script "js/bulma-navbar.js" %}
+
+        {% if post.klipse %} {{post.klipse|safe}} {% endif %}
+        {% if page.klipse %} {{page.klipse|safe}} {% endif %}
+</body>
+
+</html>
