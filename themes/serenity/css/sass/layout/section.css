@@ -1,0 +1,21 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 8  | /   +desktop
+ * 9  | |     // Sizes
+ * 10 | |     &.is-medium
+ * 11 | |       padding: $section-padding-medium
+ * 12 | |     &.is-large
+ * 13 | \       padding: $section-padding-large
+ *    '
+ *   themes/serenity/css/sass/layout/section.sass 8:3  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 8  \2502  \250c    +desktop\a 9  \2502  \2502      // Sizes\a 10 \2502  \2502      &.is-medium\a 11 \2502  \2502        padding: $section-padding-medium\a 12 \2502  \2502      &.is-large\a 13 \2502  \2514        padding: $section-padding-large\a    \2575 \a   themes/serenity/css/sass/layout/section.sass 8:3  root stylesheet";
+}

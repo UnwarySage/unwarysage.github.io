@@ -1,0 +1,72 @@
+/* Error: Undefined mixin.
+ *     ,
+ * 65  | /   +mobile
+ * 66  | |     &.is-narrow-mobile
+ * 67  | |       flex: none
+ * 68  | |     &.is-full-mobile
+ * 69  | |       flex: none
+ * 70  | |       width: 100%
+ * 71  | |     &.is-three-quarters-mobile
+ * 72  | |       flex: none
+ * 73  | |       width: 75%
+ * 74  | |     &.is-two-thirds-mobile
+ * 75  | |       flex: none
+ * 76  | |       width: 66.6666%
+ * 77  | |     &.is-half-mobile
+ * 78  | |       flex: none
+ * 79  | |       width: 50%
+ * 80  | |     &.is-one-third-mobile
+ * 81  | |       flex: none
+ * 82  | |       width: 33.3333%
+ * 83  | |     &.is-one-quarter-mobile
+ * 84  | |       flex: none
+ * 85  | |       width: 25%
+ * 86  | |     &.is-one-fifth-mobile
+ * 87  | |       flex: none
+ * 88  | |       width: 20%
+ * 89  | |     &.is-two-fifths-mobile
+ * 90  | |       flex: none
+ * 91  | |       width: 40%
+ * 92  | |     &.is-three-fifths-mobile
+ * 93  | |       flex: none
+ * 94  | |       width: 60%
+ * 95  | |     &.is-four-fifths-mobile
+ * 96  | |       flex: none
+ * 97  | |       width: 80%
+ * 98  | |     &.is-offset-three-quarters-mobile
+ * 99  | |       margin-left: 75%
+ * 100 | |     &.is-offset-two-thirds-mobile
+ * 101 | |       margin-left: 66.6666%
+ * 102 | |     &.is-offset-half-mobile
+ * 103 | |       margin-left: 50%
+ * 104 | |     &.is-offset-one-third-mobile
+ * 105 | |       margin-left: 33.3333%
+ * 106 | |     &.is-offset-one-quarter-mobile
+ * 107 | |       margin-left: 25%
+ * 108 | |     &.is-offset-one-fifth-mobile
+ * 109 | |       margin-left: 20%
+ * 110 | |     &.is-offset-two-fifths-mobile
+ * 111 | |       margin-left: 40%
+ * 112 | |     &.is-offset-three-fifths-mobile
+ * 113 | |       margin-left: 60%
+ * 114 | |     &.is-offset-four-fifths-mobile
+ * 115 | |       margin-left: 80%
+ * 116 | |     @for $i from 0 through 12
+ * 117 | |       &.is-#{$i}-mobile
+ * 118 | |         flex: none
+ * 119 | |         width: percentage($i / 12)
+ * 120 | |       &.is-offset-#{$i}-mobile
+ * 121 | \         margin-left: percentage($i / 12)
+ *     '
+ *   themes/serenity/css/sass/grid/columns.sass 65:3  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a     \2577 \a 65  \2502  \250c    +mobile\a 66  \2502  \2502      &.is-narrow-mobile\a 67  \2502  \2502        flex: none\a 68  \2502  \2502      &.is-full-mobile\a 69  \2502  \2502        flex: none\a 70  \2502  \2502        width: 100%\a 71  \2502  \2502      &.is-three-quarters-mobile\a 72  \2502  \2502        flex: none\a 73  \2502  \2502        width: 75%\a 74  \2502  \2502      &.is-two-thirds-mobile\a 75  \2502  \2502        flex: none\a 76  \2502  \2502        width: 66.6666%\a 77  \2502  \2502      &.is-half-mobile\a 78  \2502  \2502        flex: none\a 79  \2502  \2502        width: 50%\a 80  \2502  \2502      &.is-one-third-mobile\a 81  \2502  \2502        flex: none\a 82  \2502  \2502        width: 33.3333%\a 83  \2502  \2502      &.is-one-quarter-mobile\a 84  \2502  \2502        flex: none\a 85  \2502  \2502        width: 25%\a 86  \2502  \2502      &.is-one-fifth-mobile\a 87  \2502  \2502        flex: none\a 88  \2502  \2502        width: 20%\a 89  \2502  \2502      &.is-two-fifths-mobile\a 90  \2502  \2502        flex: none\a 91  \2502  \2502        width: 40%\a 92  \2502  \2502      &.is-three-fifths-mobile\a 93  \2502  \2502        flex: none\a 94  \2502  \2502        width: 60%\a 95  \2502  \2502      &.is-four-fifths-mobile\a 96  \2502  \2502        flex: none\a 97  \2502  \2502        width: 80%\a 98  \2502  \2502      &.is-offset-three-quarters-mobile\a 99  \2502  \2502        margin-left: 75%\a 100 \2502  \2502      &.is-offset-two-thirds-mobile\a 101 \2502  \2502        margin-left: 66.6666%\a 102 \2502  \2502      &.is-offset-half-mobile\a 103 \2502  \2502        margin-left: 50%\a 104 \2502  \2502      &.is-offset-one-third-mobile\a 105 \2502  \2502        margin-left: 33.3333%\a 106 \2502  \2502      &.is-offset-one-quarter-mobile\a 107 \2502  \2502        margin-left: 25%\a 108 \2502  \2502      &.is-offset-one-fifth-mobile\a 109 \2502  \2502        margin-left: 20%\a 110 \2502  \2502      &.is-offset-two-fifths-mobile\a 111 \2502  \2502        margin-left: 40%\a 112 \2502  \2502      &.is-offset-three-fifths-mobile\a 113 \2502  \2502        margin-left: 60%\a 114 \2502  \2502      &.is-offset-four-fifths-mobile\a 115 \2502  \2502        margin-left: 80%\a 116 \2502  \2502      @for $i from 0 through 12\a 117 \2502  \2502        &.is-#{$i}-mobile\a 118 \2502  \2502          flex: none\a 119 \2502  \2502          width: percentage($i / 12)\a 120 \2502  \2502        &.is-offset-#{$i}-mobile\a 121 \2502  \2514          margin-left: percentage($i / 12)\a     \2575 \a   themes/serenity/css/sass/grid/columns.sass 65:3  root stylesheet";
+}
