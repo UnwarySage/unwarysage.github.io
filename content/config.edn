@@ -1,6 +1,6 @@
 {:site-title                   "Glimmers and Musings"
- :author                       "Charlot"
- :description                  "Charlots webshelf"
+ :author                       "Charlot Shaw"
+ :description                  "Charlot's webshelf"
  :site-url                     "https://unwarysage.github.io/"
  :post-root                    "posts"
  :page-root                    "pages"

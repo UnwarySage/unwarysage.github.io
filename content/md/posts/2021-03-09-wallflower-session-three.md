@@ -14,7 +14,7 @@ They finish breakfast, and depart for the Governors Farm and Kyle at the printsh
 > moves like a mantis, and when idle, shows little sign of its internal armory. Dark, matte metal and small amounts of silver trim.
 
 > *Conquest Of The Mind*, pilot Jenna Lyndale, deploys with a dorsal mount howitzer, and several hive nexi for deployment of sparrow sized
-> micro drones. The lack of weapons that ned brachial appendages make the human-scale manipulators the only visible arms, leading to a mildly comedic appearance. The puce paint job, and overrall rounded appearance add to the effect.
+> micro drones. The lack of weapons that need brachial appendages make the human-scale manipulators the only visible arms, leading to a mildly comedic appearance. The puce paint job, and overrall rounded appearance add to the effect.
 
 Popping the hatches and clearing that New Mech Scent, the squad runs diagnostics and then depart for a rendezvous with Chief Engineer Fielding.
 The engineer has a large crew and several flatbed trucks loaded and waiting for the mech escorts. He hopes to get the Landing Bowls pumps installed,
@@ -45,13 +45,14 @@ The pilots advance, the charge of the enemy force broken. Anvil-Beta, (tagged su
 and provides covering fire for Crunch-Gammas approach. Squatting down, Crunch-Gamma assists the pilot of Spearfish-Alpha up from the wreck.
 
 > Torch: Try to take him alive!
+
 >Zephyr: Permission to fire?
->*valid targeting solution*
+
 >Torch: Just fire it!
 
 Torch gave the order for Zephyr to fire on the tight cluster surrounding the wreck, but the round missed, and the op-for completed their fighting withdrawal.
 Unwilling to leave the engineering team unguarded, the pilots did not pursue, and re-established their perimeter.
 About thirty minutes later, the pilots receives a broadcast message from Serenity.
-> This is Serenity of Merricktown, to all listening. I am receiving reports of a large scale attack on Liu Maze outridings, bend of the river and eastward. Eight confirmed casualties, five injured, two farms torched. This message will repeat. This is Serenity of Merricktown
+> This is Serenity of Merricktown, to all listening. I am receiving reports of a large scale attack on Liu Maize outridings, bend of the river and eastward. Eight confirmed casualties, five injured, two farms torched. This message will repeat. This is Serenity of Merricktown
 
 ### End Session Three
