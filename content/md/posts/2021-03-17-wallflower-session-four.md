@@ -6,7 +6,7 @@
 The official campaign, [No Room For A Wallflower](https://massif-press.itch.io/no-room-for-a-wallflower-act-1) is out. I'm reading through my copy and adapting the content to work with the canon I've established. So far, I'm finding the official version fixes most of the gaps in drafts I've worked around.
 
 ### Aftermath
-Unable to abandon the engineering team to a potential counter-attack, the pilots listened to what information was availible about the attacks on the Grey Towns, and examined the op-for mechs they had splashed.
+Unable to abandon the engineering team to a potential counter-attack, the pilots listened to what information was availible about the attacks on the grey towns, and examined the op-for mechs they had splashed.
 
 The frames were unquestionably mechanical at the core, but had trellis-like frameworks through which the biological chitin had grown. It slowly bled a pale green fluid when pierced.
 
