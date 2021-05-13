@@ -49,3 +49,5 @@ Notably:
 In the following days, Pilots Lyndale and Sen honed their predictive model, and derived two predictions of note. The opfor had lost the bulk of its forces in the preceding engagements. If it was larger than this predicted threshhold, it would be inconsistent with prior patterns of behavior.
 Also, the opfor had more tech, and varied, than what could reasonably be salvaged. They had a supply line of some form.
 
+## End Session Seven
+
