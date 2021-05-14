@@ -3,7 +3,7 @@
 :tags ["programming" "clojure" "web" "meta" "cryogen" "github" "jekyll"]}
 
 ## Reignition
-I hadn't touched this blog in a long time, but needing some projects to keep my skills up, I've decided to ressurect it.
+I hadn't touched this blog in a long time, but needing some projects to keep my skills up, I've decided to resurrect it.
 However, I didn't want to go back to the standard GitHub Pages Jekyll workflow. I found my relative inability to tinker constraining,
 as I didn't know the underlying language, namely Ruby. Jekyll is a fine project, but I'm principally a Clojure dev,
 and I want to feel like I own my blog, and that means the code that powers it.
