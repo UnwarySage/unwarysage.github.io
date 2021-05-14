@@ -8,12 +8,12 @@
 
 <meta name="description" content="ReignitionI hadn&#39;t touched this blog in a long time, but needing some projects to keep my skills up, I&#39;ve decided to ressurect it.
 However, I didn&#39;t want to go back to the standard GitHub Pages Jekyll workflow. I found my relative inability to tinker constraining,
-as I didn&#39;t know the udnerlying language, namely Ruby. Jekyll is a fine project, but I&#39;m principally a Clojure dev,
+as I didn&#39;t know the underlying language, namely Ruby. Jekyll is a fine project, but I&#39;m principally a Clojure dev,
 and I want to feel like I own my blog, and that means the code that powers it.">
 
 <meta property="og:description" content="ReignitionI hadn&#39;t touched this blog in a long time, but needing some projects to keep my skills up, I&#39;ve decided to ressurect it.
 However, I didn&#39;t want to go back to the standard GitHub Pages Jekyll workflow. I found my relative inability to tinker constraining,
-as I didn&#39;t know the udnerlying language, namely Ruby. Jekyll is a fine project, but I&#39;m principally a Clojure dev,
+as I didn&#39;t know the underlying language, namely Ruby. Jekyll is a fine project, but I&#39;m principally a Clojure dev,
 and I want to feel like I own my blog, and that means the code that powers it.">
 
 <meta property="og:url" content="https://unwarysage.github.io/posts/2021-02-17-blog-the-second/" />
@@ -85,7 +85,7 @@ and I want to feel like I own my blog, and that means the code that powers it.">
     
     <h2 id="reignition">Reignition</h2><p>I hadn't touched this blog in a long time, but needing some projects to keep my skills up, I've decided to ressurect it.
 However, I didn't want to go back to the standard GitHub Pages Jekyll workflow. I found my relative inability to tinker constraining,
-as I didn't know the udnerlying language, namely Ruby. Jekyll is a fine project, but I'm principally a Clojure dev,
+as I didn't know the underlying language, namely Ruby. Jekyll is a fine project, but I'm principally a Clojure dev,
 and I want to feel like I own my blog, and that means the code that powers it.</p><h2 id="enter-cryogen">Enter Cryogen</h2><p>Looking through the static site generators for Clojure, <a href="http://cryogenweb.org/">Cryogen</a> and <a href="https://perun.io">Perun</a> seemed to be the major players for simple sites. I'd gotten my feet wet with simple projects in both, but never published anything. I like the idea of perun, but its lack of maintainership and needing to learn boot to fully work it, plus incomplete documentation made the decision for me.</p><p>When I started in Jekyll, I noted that it should be easy enough to transfer the blog over to a different system. It's just Markdown after all.
 I was both right and wrong, and thought writing up a post on how I did the transfer would be good notes for myself in future, and of interest to anyone else seeking to leave Jekyll, or run Cryogen through GitHub Pages.</p><h3 id="01-setting-up-cryogen">01: Setting Up Cryogen</h3><p>I ran the usual <code>lein new cryogen unwarysage.github.io</code> and started tinkering with the config, following Cryogens documentation. Picked out a theme for the moment, tried <code>:previews</code> on and off, and made <code>:posts-output</code> simply <code>:posts</code>, but by and large I ran with the defaults.</p><h3 id="02-migration-from-jekyll">02: Migration from Jekyll</h3><p>Copying over the markdown files into a transitional folder, I went through and converted them by hand, needing only to do eight or so pages. I could have scripted any of these steps, but it wasn't worth it for eight repititions.</p><p>First I converted the YAML frontmatter into the Clojure map literal expected by Cryogen. I dropped the date entry, as I don't think I need super precise timestamps, and I'm already dating based on the filename.
 Other than changing <code>categories</code> to <code>:tags</code>, that was all I needed to make the blog compile.</p><p>For example, going from this.</p><pre><code class="yml">---
@@ -94,14 +94,13 @@ title: Terrayiel, Factions and Power
 date:   2018-09-05 15:08:55 -0500
 categories: rpg worldbuilding fantasy terrayiel
 ---
-</code></pre><p>to this.</p><pre><code class="clojure">{
-:layout :post
+</code></pre><p>to this.</p><pre><code class="clojure">{:layout :post
 :title "Terrayiel, Factions and Power"
 :tags ["rpg" "worldbuilding" "fantasy" "terrayiel"]}
-</code></pre><p>Following that, I needed to make the links work. Cryogen provides a stricter separation of Markdown and template, so I didn't have to deal with templating logic, just ordinary markdown links.</p><p>For example, Jekyll has this,
+</code></pre><p>Following that, I needed to make the links work. Cryogen provides a stricter separation of Markdown and template, so I didn't have to deal with templating logic, just ordinary markdown links, which is a nice change.</p><p>For example, Jekyll has this,
 <code>[Previous: Souls and Magic]({{site.baseurl }}{% post_url 2018-08-22-terrayiel-souls-and-magic %})</code></p><p>versus Cryogens version here.
 <code>[Previous: Souls and Magic](/posts/2018-08-22-terrayiel-souls-and-magic)</code></p><p>Not caring for my history with Jekyll, I simply set my local git repositories upstream to point at GitHub with <code>git remote add origin https://github.com/unwarysage/unwarysage.github.io</code>, and then force-pushed.
-This killed the prior blog, but kept the repository and it's settings.</p><h3 id="03-wiring-up-github-actions">03: Wiring up GitHub Actions</h3><p>I read a chunk of the GitHub Pages and Actions documentation, but this next bit took some fumbling, which I will summarize, and not delve into, blow-by-blow.</p><ol><li>Create <code>.nojekyll</code> in the repository root. this tells Github to stop thinking this is a Jekyll project.</li><li>Ensure that your <code>:blog-prefix</code> in Cryogens <code>config.edn</code> is set to the empty string. This is so that you could run a Cryogen blog alongside something else and not have the URI clash, but GitHub Pages expect to be flat, with no prefixing.</li><li>Create <code>.github/workflows/publish.yml</code>. If you are using Cryogen, you can just use mine, but you'll need some tweaking otherwise.</li><li>next, go to your repository on GitHub, and under Settings, enable github pages, set to the root of <code>gh-pages</code> branch.</li><li>Push your changes to <code>master</code> and watch the Action run on Github, then go to <code>https://your-github-username-here.github.io</code> and bask in the glory.</li></ol><h4 id="the-github-action-in-detail">The GitHub Action in detail</h4><pre><code class="yml"># .github/workflows/publish.yml
+This killed the prior blog, but kept the repository and it's settings.</p><h3 id="03-wiring-up-github-actions">03: Wiring up GitHub Actions</h3><p>I read a chunk of the GitHub Pages and Actions documentation, but this next bit took some fumbling, which I will summarize the overrall result, and not delve into the blow-by-blow.</p><ol><li>Create <code>.nojekyll</code> in the repository root. this tells Github to stop thinking this is a Jekyll project.</li><li>Ensure that your <code>:blog-prefix</code> in Cryogens <code>config.edn</code> is set to the empty string. This is so that you could run a Cryogen blog alongside something else and not have the URI clash, but GitHub Pages expect to be flat, with no prefixing.</li><li>Create <code>.github/workflows/publish.yml</code>. If you are using Cryogen, you can just use mine, but you'll need some tweaking otherwise.</li><li>next, go to your repository on GitHub, and under Settings, enable github pages, set to the root of <code>gh-pages</code> branch.</li><li>Push your changes to <code>master</code> and watch the Action run on Github, then go to <code>https://your-github-username-here.github.io</code> and bask in the glory.</li></ol><h4 id="the-github-action-in-detail">The GitHub Action in detail</h4><pre><code class="yml"># .github/workflows/publish.yml
 name: publish
 
 on:
@@ -136,6 +135,19 @@ jobs:
     # Fetch Lein Deps
       - name: Fetch deps
         run: lein deps
+    # cache Clojure(java) dependencies
+      - name: Cache Java modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-java-modules
+        with:
+          # npm cache files are stored in `~/.m2` on Linux/macOS
+          path: ~/.m2
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
     # Build the blog    
       - name: Build Blog
         run: lein run
@@ -146,7 +158,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public/
 </code></pre><p>This tells GitHub to run this everytime <code>master</code> is pushed to, or by manual request. The action will checkout the repository on the runner, install java, install <code>lein</code> (and Clojure), run <code>apt</code> to  get <code>nodejs</code> and <code>npm</code>, then uses <code>npm</code> to install the <code>sass</code> command. Whatever you do to provide Sass, it needs to be reachable at the path specified in <code>:sass-path</code> in <code>config.edn</code>.
-It will then ask <code>lein</code> to pull in it's dependencies, and build the blog. Cryogen puts those in <code>/public/</code>. Finally, it uses another preconfigured action to move the files from there to the <code>gh-pages</code> branch, creating it if neccesary.</p><p>This could definitely be improved by caching leiningens dependencies, and I'll edit this post once I figure that out.</p><h2 id="conclusion">Conclusion</h2><p>It's the little details in Software, and getting them exactly right. Deploying to GitHub Pages just makes the feedback loop clunkier, requiring a full commit and push to test, despite wanting to only push good code. However, I do think the project is working quite well. I'm blogging once more, and excited to start tweaking this site to no end, especially now I have reduced the amount of black-box code to just be GitHub Pages deployment system. It's a good feeling.</p>
+It will then ask <code>lein</code> to pull in it's dependencies, and build the blog. Then it will cache the leiningen dependencies, for faster rebuilds. This needs to come after the step where the dependencies are pulled in, so that the initial cache is a populated folder.
+Cryogen puts the built blog in <code>/public/</code>. Finally, the workflow uses another preconfigured action to move the files from there to the <code>gh-pages</code> branch, creating it if neccesary.</p><h2 id="conclusion">Conclusion</h2><p>It's the little details in Software, and getting them exactly right. Deploying to GitHub Pages just makes the feedback loop clunkier, requiring a full commit and push to test, despite wanting to only push good code. However, I do think the project is working quite well. I'm blogging once more, and excited to start tweaking this site to no end, especially now I have reduced the amount of black-box code to just be GitHub Pages deployment system. It's a good feeling.</p><p>Edits:
+Added information on caching, fixed typoes.</p>
 </div>
 
 <div id="post-tags">
