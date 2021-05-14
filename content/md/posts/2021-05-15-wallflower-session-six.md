@@ -1,5 +1,6 @@
 {:title "Wallflower Session 6: Enemy At The Gates"
 :layout :post
+:date "2021-05-04-17:30"
 :tags ["rpg" "session log" "lancer" "wallflower"]}
 
 ### Wakeup Call

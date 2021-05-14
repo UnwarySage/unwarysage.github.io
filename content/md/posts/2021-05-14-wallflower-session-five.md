@@ -1,6 +1,6 @@
 {:title "Wallflower Session 5: Ghosts On The Wind"
 :layout :post
-:draft? true
+:date "2021-05-14-15:30"
 :tags ["rpg" "session log" "lancer" "wallflower"]}
 
 ## Touching Base
