@@ -12,7 +12,7 @@ Militia forces had managed to hold back the opfor, but had suffered significant 
 
 Thunderbird Squadron did not do favorably in the initial engagement, with pilots Krell and Sen taking major structural damage in the opening moves of the engagement.
 
-All opfor frames had the biological chitin armoring, and there was a more aggresive variant of the Anvil escort pattern-group present, tagged as Valor. Also present was long range artillery frame, tagged Thunder, the source of most of the damage to Evergreens fortifications.
+All opfor frames had the biological chitin armoring, and there was a more aggressive variant of the Anvil escort pattern-group present, tagged as Valor. Also present was a long-range artillery frame, tagged Thunder, the source of most of the damage to Evergreens fortifications.
 
 Thunderbird Squadron rallied, adjusting for the threat level. After deploying long cycle batteries and adapting their tactics, the opfor was driven back.
 
@@ -23,25 +23,25 @@ The lengths to which the pilots pushed their mechs and themselves was visible to
 
 ### Fakeout
 
-Patience informed the pilots that they had detected a incursion at the Stable Reactor complex, and believed the assault on the gates to be a diversion.
+Patience informed the pilots that they had detected an incursion at the Stable Reactor complex, and believed the assault on the gates to be a diversion.
 
 With their frames in critical condition, the pilots prepared to run for the Stable Reactors and face the enemy while in dire condition.
 
-Chief Engineer Castor Fielding made his presence known with a "flying garage", of commandereed cargo trucks, converted in mobile repair stations.
-Onoard the trucks,the engineering crew attempted what repairs they could while en route. Engineers Mandalay and Minch required medical attention after falling from the bed in the confusion.
+Chief Engineer Castor Fielding made his presence known with a "flying garage", of commandeered cargo trucks, converted in mobile repair stations.
+Onboard the trucks,the engineering crew attempted what repairs they could while en route. Engineers Mandalay and Minch required medical attention after falling from the bed in the confusion.
 
-Commander Hadura noted that the Stable Reactor complex had two main reactors, and that both were being targetted. She and the bulk of militia forces peeled off to defend Stable 1, while the pilots advanced on Stable 2.
+Commander Hadura noted that the Stable Reactor complex had two main reactors, and that both were being targeted. She and the bulk of militia forces peeled off to defend Stable 1, while the pilots advanced on Stable 2.
 
 Thunderbird Squadron deployed from the trucks, and engaged further chitin-armored frames inside the perimeter defense of Stable Reactor 2.
 Further novel pattern groups were encountered, along with infantry support:
 
 * Anthill: drone deployment frame, with extensive area denial capabilities
-* Scalpel: Melee specialized frame, highly precise and aggresive.
+* Scalpel: Melee specialized frame, highly precise and aggressive.
 * Talos: Demolition specialist, equipped with half ton hammer and redundant systems, leader of this assault group.
 * An infantry squad, with individual chitin carapace armor, and a field portable DEW
 
-During the combat, Scalpel was quickly neutralized after an aggresive advance. The infantry's Directed Energy Weapon damaged *Conquest Of The Mind*,
-but a retaliatory strike from pilot Lyndales howitzer and *Walking Under Fire*'s prototype weapon rapidly depleted their numbers. 
+During the combat, Scalpel was quickly neutralized after an aggressive advance. The infantry's Directed Energy Weapon damaged *Conquest Of The Mind*,
+but a retaliatory strike from pilot Lyndales howitzer and *Walking Under Fire*'s prototype weapon rapidly depleted their numbers.
 
 Anthill deployed a drone swarm directly onto key reactor components, while the lumbering Talos advanced steadily, directing other combatants.
 
