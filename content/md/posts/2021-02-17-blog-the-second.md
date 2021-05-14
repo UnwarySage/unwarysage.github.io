@@ -5,7 +5,7 @@
 ## Reignition
 I hadn't touched this blog in a long time, but needing some projects to keep my skills up, I've decided to ressurect it.
 However, I didn't want to go back to the standard GitHub Pages Jekyll workflow. I found my relative inability to tinker constraining,
-as I didn't know the udnerlying language, namely Ruby. Jekyll is a fine project, but I'm principally a Clojure dev,
+as I didn't know the underlying language, namely Ruby. Jekyll is a fine project, but I'm principally a Clojure dev,
 and I want to feel like I own my blog, and that means the code that powers it.
 
 ## Enter Cryogen
@@ -34,12 +34,11 @@ categories: rpg worldbuilding fantasy terrayiel
 ```
 to this.
 ```clojure
-{
-:layout :post
+{:layout :post
 :title "Terrayiel, Factions and Power"
 :tags ["rpg" "worldbuilding" "fantasy" "terrayiel"]}
 ```
-Following that, I needed to make the links work. Cryogen provides a stricter separation of Markdown and template, so I didn't have to deal with templating logic, just ordinary markdown links.
+Following that, I needed to make the links work. Cryogen provides a stricter separation of Markdown and template, so I didn't have to deal with templating logic, just ordinary markdown links, which is a nice change.
 
 For example, Jekyll has this,
 `[Previous: Souls and Magic]({{site.baseurl }}{% post_url 2018-08-22-terrayiel-souls-and-magic %})`
@@ -52,7 +51,7 @@ Not caring for my history with Jekyll, I simply set my local git repositories up
 This killed the prior blog, but kept the repository and it's settings.
 
 ### 03: Wiring up GitHub Actions
-I read a chunk of the GitHub Pages and Actions documentation, but this next bit took some fumbling, which I will summarize, and not delve into, blow-by-blow.
+I read a chunk of the GitHub Pages and Actions documentation, but this next bit took some fumbling, which I will summarize the overrall result, and not delve into the blow-by-blow.
 
 1. Create `.nojekyll` in the repository root. this tells Github to stop thinking this is a Jekyll project.
 2. Ensure that your `:blog-prefix` in Cryogens `config.edn` is set to the empty string. This is so that you could run a Cryogen blog alongside something else and not have the URI clash, but GitHub Pages expect to be flat, with no prefixing.
@@ -98,6 +97,19 @@ jobs:
     # Fetch Lein Deps
       - name: Fetch deps
         run: lein deps
+    # cache Clojure(java) dependencies
+      - name: Cache Java modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-java-modules
+        with:
+          # npm cache files are stored in `~/.m2` on Linux/macOS
+          path: ~/.m2
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
     # Build the blog    
       - name: Build Blog
         run: lein run
@@ -109,9 +121,11 @@ jobs:
           publish_dir: ./public/
 ```
 This tells GitHub to run this everytime `master` is pushed to, or by manual request. The action will checkout the repository on the runner, install java, install `lein` (and Clojure), run `apt` to  get `nodejs` and `npm`, then uses `npm` to install the `sass` command. Whatever you do to provide Sass, it needs to be reachable at the path specified in `:sass-path` in `config.edn`.
-It will then ask `lein` to pull in it's dependencies, and build the blog. Cryogen puts those in `/public/`. Finally, it uses another preconfigured action to move the files from there to the `gh-pages` branch, creating it if neccesary.
-
-This could definitely be improved by caching leiningens dependencies, and I'll edit this post once I figure that out.
+It will then ask `lein` to pull in it's dependencies, and build the blog. Then it will cache the leiningen dependencies, for faster rebuilds. This needs to come after the step where the dependencies are pulled in, so that the initial cache is a populated folder.
+Cryogen puts the built blog in `/public/`. Finally, the workflow uses another preconfigured action to move the files from there to the `gh-pages` branch, creating it if neccesary.
 
 ## Conclusion
 It's the little details in Software, and getting them exactly right. Deploying to GitHub Pages just makes the feedback loop clunkier, requiring a full commit and push to test, despite wanting to only push good code. However, I do think the project is working quite well. I'm blogging once more, and excited to start tweaking this site to no end, especially now I have reduced the amount of black-box code to just be GitHub Pages deployment system. It's a good feeling.
+
+Edits:
+Added information on caching, fixed typoes.
