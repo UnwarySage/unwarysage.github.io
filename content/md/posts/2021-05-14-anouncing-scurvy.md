@@ -58,7 +58,7 @@ I had set out to fully finish something, and made choices to reflect that. I was
 
 Things I could definitely improve would include:
 
-* Accessibility. I need to read more deeply about this, but I consider it to be a glaring omission. Once I know mroe, I will be returning to fix its absence.
+* Accessibility. I need to read more deeply about this, but I consider it to be a glaring omission. Once I know more, I will be returning to fix its absence.
 * Re-do the CSS, rolling my own for more control and learning. Consider using purge-css or bulma's own "require what you need only" tools to cut down the page size even more.
 * Add a printable version button, and/or one that exports to a copy pastable text format for ease.
 * Make sure that Scurvy writes to the browser history, so that you can use the browser back button to re-find that amazing character.
